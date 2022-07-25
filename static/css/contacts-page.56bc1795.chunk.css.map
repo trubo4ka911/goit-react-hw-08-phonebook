@@ -1,0 +1,1 @@
+{"version":3,"file":"static/css/contacts-page.56bc1795.chunk.css","mappings":"AAAA,YACI,wBACJ,CAEA,OACI,cAEJ","sources":["components/AppBar.css"],"sourcesContent":[".bg-myGreen{\n    background-color: #a3d0c3;\n}\n\n.title{\n    margin-top: 1em;\n\n}"],"names":[],"sourceRoot":""}
