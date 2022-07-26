@@ -1,9 +1,9 @@
-import { createSlice } from "@reduxjs/toolkit";
-import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
+import { createSlice } from '@reduxjs/toolkit';
+import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
 
 export const filterSlice = createSlice({
-  name: "filter",
-  initialState: "",
+  name: 'filter',
+  initialState: '',
   reducers: {
     filterContact: (_, { payload }) => payload,
   },
@@ -11,40 +11,49 @@ export const filterSlice = createSlice({
 export const { filterContact } = filterSlice.actions;
 export default filterSlice.reducer;
 
-export const contactApi = createApi({
-  reducerPath: "contactApi",
+export const contactsApi = createApi({
+  reducerPath: 'contactsApi',
   baseQuery: fetchBaseQuery({
-    baseUrl: "https://connections-api.herokuapp.com",
+    baseUrl: 'https://connections-api.herokuapp.com',
+    prepareHeaders: (headers, { getState }) => {
+      const token = getState().auth.token;
+      if (token) {
+        headers.set('authorization', `Bearer ${token}`);
+      }
+      return headers;
+    },
   }),
-  tagTypes: ["Contact"],
-  endpoints: (builder) => ({
+  tagTypes: ['Contacts'],
+  endpoints: builder => ({
     fetchContacts: builder.query({
-      query: () => `/contacts`,
-      providesTags: ["Contact"],
+      query: () => ({
+        url: `/contacts`,
+      }),
+      providesTags: ['Contacts'],
     }),
     deleteContact: builder.mutation({
-      query: (contactId) => ({
+      query: contactId => ({
         url: `/contacts/${contactId}`,
-        method: "DELETE",
+        method: 'DELETE',
       }),
-      invalidatesTags: ["Contact"],
+      invalidatesTags: ['Contacts'],
     }),
-    createContact: builder.mutation({
+    addContact: builder.mutation({
       query: ({ name, number }) => ({
-        url: "/contacts",
-        method: "POST",
+        url: '/contacts',
+        method: 'POST',
         body: {
           name,
-          phone: number,
+          number,
         },
       }),
-      invalidatesTags: ["Contact"],
+      invalidatesTags: ['Contacts'],
     }),
   }),
 });
 
 export const {
   useFetchContactsQuery,
+  useAddContactMutation,
   useDeleteContactMutation,
-  useCreateContactMutation,
-} = contactApi;
+} = contactsApi;
