@@ -1,1 +1,1 @@
-{"version":3,"file":"static/css/appBar-page.56bc1795.chunk.css","mappings":"AAAA,YACI,wBACJ,CAEA,OACI,cAEJ","sources":["components/AppBar.css"],"sourcesContent":[".bg-myGreen{\r\n    background-color: #a3d0c3;\r\n}\r\n\r\n.title{\r\n    margin-top: 1em;\r\n\r\n}"],"names":[],"sourceRoot":""}
+{"version":3,"file":"static/css/appBar-page.56bc1795.chunk.css","mappings":"AAAA,YACI,wBACJ,CAEA,OACI,cAEJ","sources":["components/AppBar.css"],"sourcesContent":[".bg-myGreen{\n    background-color: #a3d0c3;\n}\n\n.title{\n    margin-top: 1em;\n\n}"],"names":[],"sourceRoot":""}
