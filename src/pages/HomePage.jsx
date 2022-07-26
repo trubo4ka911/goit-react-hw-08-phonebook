@@ -11,7 +11,7 @@ export default function HomePage() {
     <Container className="mt-4" style={style}>
       {isLoggedIn ? (
         <h1>
-          Welcome, {name}. To work with contacts go to
+          Welcome, {name}. <br /> To work with contacts go to
           <Link className="text-decoration-none" to="contacts">
             {' '}
             Contacts

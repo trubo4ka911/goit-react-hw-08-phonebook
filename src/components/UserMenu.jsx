@@ -4,7 +4,7 @@ export const UserMenu = ({ name, onClick }) => {
   return (
     <>
       <Button variant="outline-light" onClick={onClick}>
-        LogOut
+        Logout
       </Button>
     </>
   );

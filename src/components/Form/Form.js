@@ -19,11 +19,11 @@ export default function Form() {
     setContactInfo({ ...contactInfo, [name]: value });
   };
 
-  const { data } = useFetchContactsQuery();
+  const { contact } = useFetchContactsQuery();
   const [createContact] = useCreateContactMutation();
 
   const onCheckNameValue = (contactName) => {
-    if (data.some((contact) => contact.name.toLowerCase() === contactName.toLowerCase())) {
+    if (contact.some((contact) => contact.name.toLowerCase() === contactName.toLowerCase())) {
       toast.info(`${contactInfo.name} is already in contacts!`);
       return;
     }
