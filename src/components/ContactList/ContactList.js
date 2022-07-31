@@ -22,10 +22,10 @@ export default function ContactsList({ contacts, isFetching, onDelete }) {
   return (
     <>
       <ContactList>
-        {contactsNormalize.map(({ id, name, phone }) => (
-          <ContactItem key={id} id={id} name={name} number={phone}>
+        {contactsNormalize.map(({ id, name, number }) => (
+          <ContactItem key={id} id={id} name={name} number={number}>
             <ContactText>{name}:</ContactText>
-            <ContactText>{phone}</ContactText>
+            <ContactText>{number}</ContactText>
             <ContactBtn onClick={() => onDelete(id)}>
               <MdDeleteForever />
             </ContactBtn>
